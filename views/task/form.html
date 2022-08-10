@@ -1,0 +1,36 @@
+<!-- Modal -->
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ .title }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/task/store" id="form-task" method="post">
+          <div class="mb-3">
+            <label for="nama" class="form-label">Assigne</label>
+            <input type="text" class="form-control" name="nama" value="{{ .task.Nama }}" id="nama">
+          </div>
+          <div class="mb-3">
+            <label for="des" class="form-label">Detail Task</label>
+            <input type="text" class="form-control" name="des" value="{{ .task.Des }}" id="des">
+          </div>
+          <div class="mb-3">
+            <label for="date" class="form-label">Deadine</label>
+            <input type="date" class="form-control" name="date" value="{{ .task.Date }}" id="date" >
+          </div>
+          <div class="modal-footer">
+            {{ if .task.Id }}
+            <input type="hidden" name="id" value="{{ .task.Id }}">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save Change</button>
+            {{ else }}
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Add</button>
+            {{ end }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

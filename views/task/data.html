@@ -1,0 +1,16 @@
+{{ $nomor := 0}}
+{{ range .task}}
+    <tr>
+    {{ $nomor = increment $nomor 1 }}
+        <td> {{ $nomor }}</td>
+        <td>{{ .Nama }}</td>
+        <td>{{ .Des }}</td>
+        <td>{{ .Date }}</td>
+
+        <td>
+            <button data-id="{{ .Id }}" class="btn btn-primary btn-sm edit-task">Edit</button>
+            <button data-id="{{ .Id }}" class="btn btn-danger btn-sm delete-task">Hapus</button>
+        </td>
+    </tr>
+    
+{{end}}
